@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "to-do-app",
-    "slug": "to-do-app",
+    "name": "Lista de tareas RN",
+    "slug": "lista-tareas",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [

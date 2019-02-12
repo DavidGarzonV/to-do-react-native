@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Text, View, StyleSheet, FlatList,
+  Text, View, StyleSheet, FlatList, ActivityIndicator,
 } from 'react-native';
 import Tarea from './Tarea';
 
@@ -8,11 +8,23 @@ class Body extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <FlatList
-          data={this.props.tareas}
-          // se obtiene el atributo {item} del elemento (desctructuración)
-          renderItem={({ item }) => <Tarea item={item} eliminar={this.props.eliminar} />}
-        />
+        {this.props.cargando
+
+          && (
+<ActivityIndicator
+              size="large"
+              color="#640064"
+            />
+)}
+        {!this.props.cargando
+          && (
+<FlatList
+            data={this.props.tareas}
+            // se obtiene el atributo {item} del elemento (desctructuración)
+            renderItem={({ item }) => <Tarea item={item} eliminar={this.props.eliminar} />}
+          />
+)
+        }
       </View>
     );
   }
